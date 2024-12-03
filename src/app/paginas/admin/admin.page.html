@@ -1,0 +1,52 @@
+<app-menuadmin></app-menuadmin> <ion-router-outlet id="principal2"></ion-router-outlet>
+
+<ion-content slot="end" [fullscreen]="true">
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Esteganografía y Modificación de Metadatos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    
+    <!-- Introducción a la Esteganografía -->
+    <div class="section">
+      <h2>¿Qué es la Esteganografía?</h2>
+      <img src="assets/images/Esteganografia.jpg" alt="Ejemplo de esteganografía" class="informative-image"/>
+      <p>La esteganografía es la práctica de ocultar información dentro de otro mensaje u objeto físico/digital 
+        para evitar su detección. Esta técnica permite ocultar casi cualquier tipo de contenido digital, 
+        como texto, imágenes, videos o audios.</p>
+    </div>
+
+    <!-- Funcionamiento de la Esteganografía -->
+    <div class="section">
+      <h2>¿Cómo Funciona?</h2>
+      <img src="assets/images/esteganografía.jpg" alt="Funcionamiento de la esteganografía" class="informative-image"/>
+      <p>En la esteganografía de imágenes, los datos se pueden ocultar alterando ligeramente los 
+        valores de color de los píxeles de la imagen. 
+        Estas modificaciones suelen ser invisibles al ojo humano, 
+        pero el contenido oculto puede ser recuperado con herramientas específicas.</p>
+    </div>
+
+    <!-- Cambio de Metadatos -->
+    <div class="section">
+      <h2>¿Qué es la Modificación de Metadatos?</h2>
+      <img src="assets/images/metadatos.jpg" alt="Modificación de metadatos" class="informative-image"/>
+      <p>Los metadatos son información adicional que acompaña a archivos de imagen, como la fecha de creación, el tipo de cámara usada, la ubicación y más. Los metadatos pueden modificarse para ocultar detalles relevantes o engañar a los destinatarios sobre la autenticidad del archivo.</p>
+    </div>
+
+    <!-- Contrarrestando la Esteganografía y los Cambios en Metadatos -->
+    <div class="section">
+      <h2>¿Cómo Contrarrestar la Esteganografía y la Modificación de Metadatos?</h2>
+      <img src="assets/images/aplicacion.png" alt="Análisis forense de imágenes" class="informative-image"/>
+      <p>Nuestra aplicación de análisis estegoanalítico verifica la autenticidad de las imágenes mediante técnicas de análisis de nivel de error (ELA) y comparación de metadatos. El ELA resalta áreas alteradas en la imagen, mientras que la comparación de metadatos identifica discrepancias sospechosas entre imágenes, ayudando a detectar posibles manipulaciones.</p>
+      <p><strong>Nota:</strong> En nuestra aplicación, los usuarios pueden cargar imágenes, aplicar ELA para detectar cambios en las imágenes y comparar metadatos para asegurar su integridad.</p>
+    </div>
+  </ion-content>
+</div>
+
+</ion-content>

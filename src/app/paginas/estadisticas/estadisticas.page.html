@@ -1,0 +1,24 @@
+<ion-header [translucent]="true" class="header-container">
+  <ion-toolbar>
+    <ion-buttons class="button" slot="start" (click)="retornar()">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>  
+    <ion-title>Estadisticas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>INTEGRIDAD Y METADATOS</p>
+  <!-- Botón para generar los gráficos -->
+  <button expand="block" (click)="generargraficos()">Actualizar graficos los gráficos</button>
+
+  <div id="estadisticas-container">
+    <!-- Canvases para los gráficos -->
+    <canvas #barChart></canvas>
+    <canvas #stegChart></canvas>
+    <canvas #elaChart></canvas>
+    
+  </div>
+  <!-- <button (click)="generarPDF()">Descargar PDF</button> -->
+  <button expand="block" (click)="generarPDF()">Generar PDF</button>
+</ion-content>

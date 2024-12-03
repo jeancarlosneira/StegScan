@@ -1,0 +1,233 @@
+<ion-header [translucent]="true" class="header-container">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="retornarpage()">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-container">
+  <!-- Encabezado de la página STEG-->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Reportes Estegoanálisis</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Contenedor con scroll para Reportes Estegoanálisis -->
+  <div class="scroll-container">
+    <ion-card *ngFor="let reporteestega of listareporteestega" class="card-container">
+      <ion-item lines="none">
+        <ion-grid>
+          <!-- Título del reporte -->
+          <ion-row class="header-row">
+            <ion-col size="12">
+              <h3 class="report-title">Nombre del reporte: {{ reporteestega.nombre_reporte }}</h3>
+              <p class="report-date">Fecha: {{ reporteestega.fecha_inicio }}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Tabla de Información General -->
+          <ion-row>
+            <ion-col size="12">
+              <table class="info-table">
+                <tr>
+                  <th>Nombre de la imagen:</th>
+                  <td>{{ reporteestega.nombre_imagen }}</td>
+                </tr>
+                <tr>
+                  <th>Hash:</th>
+                  <td>{{ reporteestega.hash_imagen }}</td>
+                </tr>
+                <tr>
+                  <th>Estado:</th>
+                  <td>{{ reporteestega.mensaje_estado }}</td>
+                </tr>
+              </table>
+            </ion-col>
+          </ion-row>
+
+          <!-- Imagen y Botón -->
+          <ion-row class="image-row">
+            <ion-col size="6">
+              <img [src]="reporteestega.url_imagen" alt="Imagen Original" class="image-display">
+            </ion-col>
+            
+          </ion-row>
+          <ion-row>
+            <ion-col size="2" class="button-col">
+              <ion-button fill="clear" color="danger" (click)="pdfesteg(reporteestega.id_repestego)">
+                <ion-icon name="document-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <!-- Encabezado de la página ELA -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Análisis de Imágenes (ELA)</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Contenedor con scroll para Reportes ELA -->
+  <div class="scroll-container">
+    <ion-card *ngFor="let reporte of listareportes" class="card-container">
+      <ion-item lines="none">
+        <ion-grid>
+          <!-- Título del reporte -->
+          <ion-row class="header-row">
+            <ion-col size="12">
+              <h3 class="report-title">Nombre del reporte: {{ reporte.nombre_reporte }}</h3>
+              <p class="report-date">Fecha: {{ reporte.fecha_inicio }}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Tabla de Información General -->
+          <ion-row>
+            <ion-col size="12">
+              <table class="info-table">
+                <tr>
+                  <th>Nombre de la imagen:</th>
+                  <td>{{ reporte.nombre_imagen }}</td>
+                </tr>
+                <tr>
+                  <th>Hash:</th>
+                  <td>{{ reporte.hash_imagen }}</td>
+                </tr>
+                <tr>
+                  <th>ID:</th>
+                  <td>{{ reporte.id_reporteela }}</td>
+                </tr>
+              </table>
+            </ion-col>
+          </ion-row>
+
+          <!-- Imágenes alineadas -->
+          <ion-row class="image-row">
+            <ion-col size="3">
+              <img [src]="reporte.url_imagen" alt="Imagen Original" class="image-display">
+            </ion-col>
+            <ion-col size="3">
+              <img [src]="reporte.url_resultado_ela" alt="Imagen ELA" class="image-display">
+            </ion-col>
+            
+          </ion-row>
+          <ion-row>
+            <ion-col size="2" class="button-col">
+              <ion-button fill="clear" color="danger" (click)="pdfrepela(reporte.id_reporteela)">
+                <ion-icon name="document-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <!-- Encabezado de la página Metadatos -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Análisis de Imágenes (Metadatos)</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Contenedor con scroll para Reportes de Metadatos -->
+  <div class="scroll-container">
+    <ion-card *ngFor="let reportemeta of listareportemeta" class="card-container">
+      <ion-item lines="none">
+        <ion-grid>
+          <!-- Título del reporte -->
+          <ion-row class="header-row">
+            <ion-col size="12">
+              <h3 class="report-title">Nombre del reporte:  {{ reportemeta.nombre_reporte }}</h3>
+              <p class="report-date">Fecha: {{ reportemeta.fecha_inicio }}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Información general en tabla -->
+          <ion-row>
+            <ion-col size="12">
+              <table class="info-table">
+                <tr>
+                  <th>Nombre Imagen:</th>
+                  <td>{{ reportemeta.nombre_imagen }}</td>
+                </tr>
+                <tr>
+                  <th>Hash:</th>
+                  <td>{{ reportemeta.hash_imagen }}</td>
+                </tr>
+                
+              </table>
+            </ion-col>
+          </ion-row>
+          
+            <ion-col size="6">
+              <div class="scroll-container2">
+                <!-- Usamos json-pretty-pipe para formatear el JSON -->
+                <pre>{{ reportemeta.metadatos | json }}</pre>
+              </div>
+            </ion-col>
+          
+
+          <!-- Imagen original y botón -->
+          <ion-row class="image-row">
+            <ion-col size="5">
+              <img [src]="reportemeta.url_imagen_original" alt="Imagen Original" class="image-display">
+            </ion-col>
+            
+          </ion-row>
+          <ion-row>
+            <ion-col size="2" class="button-col">
+              <ion-button fill="clear" color="danger" (click)="pdfrepmeta(reportemeta.id_repmeta)">
+                <ion-icon name="document-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </div>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Lista de Imágenes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="scroll-container">
+    <ion-card *ngFor="let imagenes of listarimgenes" class="card-container">
+      <ion-item lines="none">
+        <ion-grid>
+          <!-- Título del reporte -->
+          <ion-row class="header-row">
+            <ion-col size="12">
+              <h3 class="report-title">Nombre imagen: {{ imagenes.nombreimg }}</h3>
+              <p class="report-date">hash: {{ imagenes.hash }}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- Tabla de Información General -->
+          <ion-row>
+            <ion-col size="12">
+              <table class="info-table">
+                
+              </table>
+            </ion-col>
+          </ion-row>
+
+          <!-- Imágenes alineadas -->
+          <ion-row class="image-row">
+            <ion-col size="6">
+              <img [src]="imagenes.url_imagen" alt="Imagen Original" class="image-display">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </div>
+
+</ion-content>

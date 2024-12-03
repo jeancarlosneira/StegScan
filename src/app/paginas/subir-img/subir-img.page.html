@@ -1,0 +1,57 @@
+<ion-header [translucent]="true"  class="header-container">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="servG.irA('/main')">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Subir Imágenes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">Imágenes</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <!-- Card para subir la imagen -->
+  <ion-card class="upload-card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon> Subir Imagen
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <input type="file" (change)="onImageUpload($event)" />
+      <img *ngIf="imageUrlor" [src]="imageUrlor" alt="Imagen Subida" class="uploaded-image" />
+      <button expand="block" color="success" (click)="guardarImagenes()">Guardar Imagen</button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para actualizar la lista de imágenes -->
+  <button expand="block" color="secondary" (click)="actualizarImagenes()">Actualizar Imágenes</button>
+
+  <!-- Lista de imágenes ya subidas -->
+  <ion-list>
+    <ion-card *ngFor="let imagenes of listarimgenes" class="image-card">
+      <ion-item lines="none">
+        <ion-grid>
+          <ion-row class="image-row">
+            <ion-col size="10">
+              <ion-title>{{imagenes.nombreimg}}</ion-title>
+              <img [src]="imagenes.url_imagen" alt="Imagen Original" class="image-display">
+            </ion-col>
+            
+          </ion-row>
+          <ion-row>
+            <ion-col size="2" class="button-col">
+              <button fill="clear" color="danger" (click)="borrarImagen1(imagenes.id_imagen)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content>

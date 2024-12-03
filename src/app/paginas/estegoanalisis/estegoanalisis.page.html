@@ -1,0 +1,52 @@
+<ion-header [translucent]="true" class="header-container">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="retornarpage()">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Estegoánalisis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Seleccionar Imagen</ion-label>
+    <ion-select placeholder="Imagenes" (ionChange)="seleccionarImagen($event)">
+      <ion-select-option *ngFor="let imagen of listarimgenes" [value]="imagen.id_imagen">
+        <!-- Mostrar la imagen si la URL está definida -->
+        <img [src]="imagen.urlimagenor" class="uploaded-image" *ngIf="imagen.urlimagenor" alt="Imagen cargada" />
+        {{ imagen.nombreimg }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-card>
+    <ion-card-content>
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen seleccionada" />
+      <button expand="block" (click)="analyzeImage()">Analizar Imagen</button>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando análisis...</p>
+  </div>
+
+  <canvas id="chiSquareChart" width="400" height="200"></canvas>
+
+  <ion-card>
+    <div>{{ resultado }}</div>
+  </ion-card>
+
+  <!-- <ion-input [(ngModel)]="nombrerepstego" placeholder="Escriba el nombre del reporte"></ion-input> 
+   -->
+   <p></p>
+    <ion-label>Nombre del reporte: </ion-label>
+    <p></p>
+  <ion-label>{{nombrerepstego}}</ion-label>
+<p></p>
+  <button expand="block" (click)="reporteestego()">Generar Reporte de Estegoanalisis</button>
+  <button expand="block" [disabled]="!isPdfButtonEnabled" (click)="PDF()">Guardar PDF</button>
+  <button expand="block" (click)="verrep()">Ver Reportes</button>
+  
+</ion-content>

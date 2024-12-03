@@ -1,0 +1,22 @@
+[
+    {
+        "icono": "home-outline",
+        "descripcion": "Home",
+        "url": "/main"
+    },
+    {
+        "icono": "person-add-outline",
+        "descripcion": "Registro de Estudiantes",
+        "url": "/ela"
+    },
+    {
+        "icono": "book-outline",
+        "descripcion": "Registro de Cursos",
+        "url": "/metadatos"
+    },
+    {
+        "icono": "book-outline",
+        "descripcion": "Registro de Cursos",
+        "url": "/imagenes"
+    }
+]

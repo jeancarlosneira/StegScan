@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Botón de salida -->
+    <ion-buttons slot="start" (click)="salir()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-buttons>  
+    <!-- Título principal -->
+    <ion-title>Investigaciones finalizadas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Header secundario -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Investigaciones Finalizadas:</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Lista de investigaciones -->
+  <ion-card *ngFor="let investigacion of listarinvestigaciones" class="investigacion-card">
+    <ion-card-header>
+      <ion-card-title>{{ investigacion.name_invg }}</ion-card-title>
+      <ion-card-subtitle>Fecha de inicio: {{ investigacion.fecha_inicio }}</ion-card-subtitle>
+      <ion-card-subtitle>Fecha finalizado: {{ investigacion.fecha_fin }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <!-- Botón para eliminar la investigación -->
+          <ion-col size="6">
+            <ion-button expand="block" color="danger" (click)="eliminarInvestigacion(investigacion.id_investigacion)">
+              <ion-icon name="trash-outline" slot="start"></ion-icon>
+              Eliminar
+            </ion-button>
+          </ion-col>
+          <!-- Botón para imprimir la investigación -->
+          <ion-col size="6">
+            <ion-button expand="block" color="success" (click)="imprimirinvestigacion(investigacion.id_investigacion)">
+              <ion-icon name="document-text-outline"></ion-icon>
+              Imprimir
+            </ion-button>
+          </ion-col>
+          
+          <!-- Botón para acceder a la investigación -->
+          <ion-col size="6">
+            <ion-button expand="block" color="primary" (click)="selectinvg(investigacion.id_investigacion)">
+              <ion-icon name="folder-open-outline" slot="start"></ion-icon>
+              Acceder
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón flotante para agregar una investigación -->
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="addinvestigacion()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="success" (click)="invgfinalizadas()">
+      <ion-icon name="albums-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

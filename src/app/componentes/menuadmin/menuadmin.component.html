@@ -1,0 +1,64 @@
+<ion-menu side="end" contentId="principal2" menuId="principal2" color="dark">
+    <ion-header>
+      <ion-toolbar >
+        <ion-title>Aplicaciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+    <ion-list >
+      <ion-menu-toggle>
+      <ion-item (click)="accion('ela')"> ELA 
+        <ion-icon slot="start" name="image" > </ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-item (click)="accion('metadatos2')"> metadatos
+        <ion-icon slot="start" name="book-outline"></ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-item (click)="accion('ia')"> Inteligencia 
+        <ion-icon slot="start" name="hammer"></ion-icon>
+      </ion-item> 
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item (click)="accion('subir-img')"> subir imagen
+        <ion-icon slot="start" name="cloud-upload"></ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item (click)="accion('estadisticas')"> estadisticas
+        <ion-icon slot="start" name="cloud-upload"></ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-item (click)="accion('aggusuaio')"> agg usuario
+        <ion-icon slot="start" name="cloud-upload"></ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+    
+    <ion-menu-toggle>
+      <ion-item (click)="cerrarsesion()"> cerrar sesion
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+      </ion-item>
+    </ion-menu-toggle>
+
+    </ion-list>
+  </ion-content>
+
+  </ion-menu >
+  <ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">    
+      <ion-menu-button menu="principal2">
+        <ion-icon name="grid-outline"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>APLICACIÓN FORENSE ADMIN</ion-title>
+
+  </ion-toolbar>
+
+  </ion-header>

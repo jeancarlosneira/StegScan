@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="servG.irA('/main')">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>  
+    <ion-title>IMAGENES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">imagenes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+  <div class="card">
+    <!-- Botón para subir la imagen -->
+        <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon> 
+        Subir Imagen
+      <input type="file" (change)="onImageUpload($event)" /> 
+      <img [src]="imageUrlor"  class="uploaded-image" />
+  </div>
+
+  <button (ckick)="guardar_imagenes()"></button>
+
+
+</ion-content>

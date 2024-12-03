@@ -1,0 +1,83 @@
+.header-container {
+  background-color: #f1720a;
+  color: white;
+
+  ion-toolbar {
+    --background: #f1720a;
+    --color: white;
+  }
+}
+.upload-card {
+  margin: 16px;
+  text-align: center;
+  background-color: #000000; /* Fondo blanco para la tarjeta */
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-icon {
+  font-size: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+  color: var(--ion-color-primary); /* Icono con el color principal */
+}
+
+.uploaded-image {
+  width: 100%;
+  max-width: 300px;
+  margin: 16px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-card {
+  margin: 8px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff; /* Fondo blanco para las tarjetas de imagen */
+}
+
+.image-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-display {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  max-width: 500px; /* Establece un ancho máximo de 500px */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-display:active {
+  transform: scale(1.5); /* Agranda la imagen al 150% */
+  max-width: 50vw; /* Ajusta el ancho al 50% del ancho de la pantalla */
+  max-height: 50vh; /* Ajusta la altura al 50% de la altura de la pantalla */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+button {
+  width: 100%;
+  position: static;
+  font-size: 1rem;
+  padding: 0.8em 2em;
+  background-color: #000;
+  border: 3px solid rgb(255, 174, 0);
+  border-radius: 1em;
+  color: #fff;
+  font-weight: bolder;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: -5px 5px 0px 0px rgb(255, 174, 0);
+  cursor: pointer;
+}

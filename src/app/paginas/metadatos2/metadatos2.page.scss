@@ -1,0 +1,101 @@
+.header-container {
+  background-color: #f1720a;
+  color: white;
+
+  ion-toolbar {
+    --background: #f1720a;
+    --color: white;
+  }
+}
+.upload-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  
+  .file-input {
+    flex: 1;
+    margin: 0 8px;
+  }
+  
+  .upload-icon {
+    margin-right: 8px;
+  }
+  .different {
+    background-color: brown;
+  }
+  .igual {
+    background-color: #ffcccc; /* Color rojo claro para destacar coincidencias */
+  }
+  
+  .upload-container {
+    padding: 16px;
+  
+    .file-input {
+      margin-bottom: 16px;
+    }
+  
+    .image-preview {
+      margin: 16px 0;
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  .bottom-buttons {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center; // Centra los botones horizontalmente
+  }
+  .card {
+    width: 100%;
+    
+    border-radius: 30px;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+                -15px -15px 30px rgb(60, 60, 60);
+   }
+
+  button {
+    width: 100%;
+    position: static;
+    font-size: 1rem;
+    padding: 0.8em 2em;
+    background-color: #000;
+    border: 3px solid rgb(255, 174, 0);
+    border-radius: 1em;
+    color: #fff;
+    font-weight: bolder;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: -5px 5px 0px 0px rgb(255, 174, 0);
+    cursor: pointer;
+  }
+
+  button:hover {
+    transform: translate(5px, -5px);
+  }
+  .image-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .uploaded-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }

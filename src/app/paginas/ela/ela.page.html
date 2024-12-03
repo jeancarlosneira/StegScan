@@ -1,0 +1,49 @@
+<ion-header [translucent]="true" class="header-container">
+  <ion-toolbar>
+    <ion-buttons class="button" slot="start" (click)="retornar()">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons>  
+    <ion-title>Integridad de Imagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-background">
+  
+  <ion-item>
+    <ion-label>Seleccionar Imagen</ion-label>
+    <ion-select placeholder="Imagenes" (ionChange)="seleccionarImagen($event)">
+      <ion-select-option *ngFor="let imagen of listarimgenes" [value]="imagen.id_imagen">
+        <img [src]="imagen.urlimagenor" class="uploaded-image" *ngIf="imagen.urlimagenor" alt="Imagen cargada" />
+        {{ imagen.nombreimg }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+<p></p>
+  <div class="card">
+    <input class="button" type="file" (change)="onImageUpload($event)" />
+    <img [src]="imageUrlor" class="uploaded-image" *ngIf="imageUrlor" alt="Imagen cargada" />
+  </div>
+<p></p>
+  <button expand="block" color="success" shape="round" (click)="escaneo_img()">
+    <ion-icon slot="start" name="search-outline"></ion-icon>
+    Analizar imagen
+  </button>
+  <p></p>
+  <img *ngIf="elaImageUrl" [src]="elaImageUrl" alt="Resultado ELA" />
+  
+  <ion-card>
+    <div>{{ analisis }}</div>
+  </ion-card>
+  
+  <ion-card>
+    <div>Probabilidad de manipulación: {{ porcentaje }} %</div>
+  </ion-card>
+  <p></p>
+  <ion-input [(ngModel)]="nombrerep" placeholder="Escriba el nombre del reporte"></ion-input>
+  
+  <button  (click)="generarReporteForense()">Generar Reporte</button>
+  <button [disabled]="!isPdfButtonEnabled" (click)="generatePdf()">Guardar en PDF</button>
+  <button (click)="verrep()">Ver Reportes</button>
+  
+
+</ion-content>

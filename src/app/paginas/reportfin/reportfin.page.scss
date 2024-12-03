@@ -1,0 +1,49 @@
+.scroll-container {
+    max-height: 400px; /* Ajusta la altura máxima según el diseño deseado */
+    overflow-y: scroll; /* Habilita el desplazamiento vertical */
+    padding: 10px; /* Espaciado interno opcional */
+    border: 1px solid #ccc; /* Borde para diferenciar el cuadro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #f9f9f9; /* Fondo para un mejor contraste */
+  }
+  
+  /* Personaliza las tarjetas (opcional) */
+  .card-container {
+    margin-bottom: 15px; /* Espaciado entre las tarjetas */
+  }
+  
+  .image-display {
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .header-row h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .info-table th,
+  .info-table td {
+    text-align: left;
+    padding: 5px;
+  }
+  
+  .scroll-container2 pre {
+    font-size: 14px;
+    white-space: pre-wrap;  /* Asegura que el texto no se desborde */
+    word-wrap: break-word;  /* Ajuste de palabra larga */
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;  /* Agrega un scroll horizontal si el contenido es demasiado largo */
+    color: white; /* Color de texto dentro del bloque de metadatos */
+    max-height: 300px; /* Ajusta la altura máxima del cuadro de texto */
+    overflow-y: auto;
+  }
+  

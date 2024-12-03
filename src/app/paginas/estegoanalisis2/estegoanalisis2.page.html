@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Estegoanálisis LSB</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Subir Imagen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <input type="file" id="imageUpload" (change)="onImageSelected($event)" />
+      <ion-button expand="full" (click)="analyzeImage()">Analizar Imagen</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="selectedImage">
+    <ion-card-header>
+      <ion-card-title>Vista Previa</ion-card-title>
+    </ion-card-header>
+    <img [src]="selectedImage" alt="Imagen seleccionada" />
+  </ion-card>
+
+  <ion-card *ngIf="analysisResult">
+    <ion-card-header>
+      <ion-card-title>Resultados del Análisis</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>¿Esteganografía Detectada?</strong> {{ analysisResult.esteganografia_detectada ? 'Sí' : 'No' }}</p>
+      <p><strong>p-Values:</strong></p>
+      <ul>
+        <li>Canal R: {{ analysisResult.chiR }}</li>
+        <li>Canal G: {{ analysisResult.chiG }}</li>
+        <li>Canal B: {{ analysisResult.chiB }}</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

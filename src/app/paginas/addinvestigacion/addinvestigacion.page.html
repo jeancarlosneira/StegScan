@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro de Caso</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="servG.irA('/reginv')">
+        <ion-icon name="caret-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background-page">
+  <div class="background-image"></div>
+  
+  <div class="form-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Detalles del Caso</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nombre del caso:</ion-label>
+            <ion-input type="text" [(ngModel)]="name_invg"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descripción del caso:</ion-label>
+            <ion-textarea rows="3" [(ngModel)]="descripcion_ing"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Fecha de inicio:</ion-label>
+            <ion-input 
+              type="text" 
+              [(ngModel)]="fecha_inicio" 
+              readonly>
+            </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<div class="bottom-buttons-container">
+  <ion-button expand="block" (click)="fun_grabar_investigacion()">Guardar</ion-button>
+</div>

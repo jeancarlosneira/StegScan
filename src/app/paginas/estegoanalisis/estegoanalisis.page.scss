@@ -1,0 +1,52 @@
+.header-container {
+  background-color: #f1720a;
+  color: white;
+
+  ion-toolbar {
+    --background: #f1720a;
+    --color: white;
+  }
+}
+
+.bottom-buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center; // Centra los botones horizontalmente
+}
+
+button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8em 2em;
+  background-color: #000;
+  border: 3px solid rgb(255, 166, 0);
+  border-radius: 1em;
+  color: #fff;
+  font-weight: bolder;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: -5px 5px 0px 0px rgb(255, 166, 0);
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translate(5px, -5px);
+}
+/* From Uiverse.io by gharsh11032000 */ 
+.card {
+  width: 99%;
+ 
+ border-radius: 30px;
+ background: #212121;
+ box-shadow: 15px 15px 30px rgb(25, 25, 25),
+             -15px -15px 30px rgb(60, 60, 60);
+}
+.heading {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
+}

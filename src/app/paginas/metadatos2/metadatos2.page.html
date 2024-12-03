@@ -1,0 +1,69 @@
+<ion-header [translucent]="true" class="header-container">  
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="retornarpage()">
+      <ion-icon name="caret-back-outline"></ion-icon>
+    </ion-buttons> 
+    <ion-title>Metadatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" [fullscreen]="true">
+  <ion-item>
+    <ion-label>Seleccionar Imagen</ion-label>
+    <ion-select placeholder="Imagenes" (ionChange)="seleccionarImagen($event)">
+      <ion-select-option *ngFor="let imagen of listarimgenes" [value]="imagen.id_imagen">
+        <!-- Mostrar la imagen si la URL está definida -->
+        <img [src]="imagen.url_imagen" class="uploaded-image" *ngIf="imagen.url_imagen" alt="Imagen cargada" />
+        {{ imagen.nombreimg }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <p></p>
+  <div class="card">
+    <ion-icon name="cloud-upload-outline" class="upload-icon"></ion-icon> 
+    Subir Imagen
+    <input type="file" accept="image/*" (change)="onImageUpload($event)" /> 
+    
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="uploaded-image" />
+  </div>
+<p></p>
+  <div>
+    <button (click)="extractMetadata()">Extraer Metadatos</button>
+  </div>
+  
+  <div *ngIf="hash" style="margin-top: 20px;">
+    <h2>Hash SHA-256 de la Imagen:</h2>
+    <p>{{ hash }}</p>
+  </div>
+
+  <div *ngIf="metadata && objectKeys(metadata).length > 0" style="margin-top: 20px;">
+    <h2>Metadatos de la Imagen:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Metadato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of objectKeys(metadata)">
+          <td>{{ key }}</td>
+          <td>{{ metadata[key] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <ion-input [(ngModel)]="nombrerepmeta" placeholder="Escriba el nombre del reporte"></ion-input>
+    -->
+    <p></p>
+    <ion-label>Nombre del reporte: </ion-label>
+    <p></p>
+  <ion-label>{{nombrerepmeta}}</ion-label>
+
+  <button [disabled]="!generateReport1" (click)="generateReport()">Generar Reporte</button>
+  <button color="danger" [disabled]="!isPdfButtonEnabled" (click)="PDF()">Guardar PDF</button>
+  <button  (click)="verrep()">Ver Reportes</button>
+
+
+</ion-content>

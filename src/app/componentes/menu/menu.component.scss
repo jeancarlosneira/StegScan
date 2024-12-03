@@ -1,0 +1,16 @@
+.menu{
+    background: #e06e10;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  margin-left: -40px;
+  
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 50px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform ease-out 200ms;
+  transition: -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms;
+}

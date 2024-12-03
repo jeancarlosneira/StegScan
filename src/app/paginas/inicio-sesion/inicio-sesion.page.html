@@ -1,0 +1,30 @@
+<ion-content class="ion-padding background-page" fullscreen>
+  <div class="background-image"></div>
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+      <label for="tab-1" class="tab">Inicio de sesión</label>
+      <div class="login-form">
+        <div class="sign-in-htm">
+          <form *ngIf="!showRegisterSection">
+            <div class="group">
+              <ion-label for="user" class="label">Nombre de usuario</ion-label>
+              <ion-input id="user" type="text" class="input" name="usuario" [(ngModel)]="usuario" placeholder="Ingresa tu usuario"></ion-input>
+            </div>
+            <div class="group">
+              <ion-label for="pass" class="label">Contraseña</ion-label>
+              <ion-input id="pass" type="password" class="input" name="password" [(ngModel)]="contrasena" placeholder="Ingresa tu contraseña"></ion-input>
+            </div>
+            <div class="group">
+              <button expand="full" (click)="login()">Iniciar sesión</button>
+            </div>
+          </form>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a (click)="usuarionuevo()">¿Usuario Nuevo?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
